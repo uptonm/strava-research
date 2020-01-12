@@ -14,7 +14,6 @@ router.get("/running_races", async (req, res) => {
           headers: { Authorization: `Bearer ${req.cookies["x-Token"]}` }
         }
       );
-      console.log(request);
       res.send(request.data);
     } else {
       res.send("Token Expired");
