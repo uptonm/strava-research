@@ -12,6 +12,9 @@ router.get("/callback", async (req, res) => {
       code: req.query.code,
       grant_type: "authorization_code"
     });
+    res.cookie("x-Token", request.data.access_token);
+    res.cookie("x-Refresh", request.data.refresh_token);
+    res.cookie("x-Expires", request.data.expires_at);
     res.send("Authorized");
   }
 });
